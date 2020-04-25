@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 
-def hello(request):
-    return HttpResponse('hello World')
+from posts import views as posts_views
+
 
 urlpatterns = [
-    path('hello/', hello ),
     path('admin/', admin.site.urls),
+    path('posts/', posts_views.list_posts),
 ]
