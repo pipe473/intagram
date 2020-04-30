@@ -50,6 +50,8 @@ def signup(request):
 
     return render(request, 'users/signup.html')
 
+def update_profile(request):
+    return render(request, 'users/update_profile.html')
 
 @login_required
 def logout_view(request):
