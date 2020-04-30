@@ -1,6 +1,7 @@
 #Django
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 def login_view(request):
     if request.method == 'POST':
@@ -14,3 +15,8 @@ def login_view(request):
             return render(request, 'users/login.html', {'error': 'Invalid username and password'})
 
     return render( request, 'users/login.html')
+
+@login_required
+def logout_view(request):
+        logout(request)
+        return redirect('login')
